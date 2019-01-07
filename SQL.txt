@@ -1,0 +1,26 @@
+CREATE TABLE `category` (
+    `categoryId`    INT(11) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    `categoryName`  VARCHAR(255) NOT NULL UNIQUE
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE `item` (
+    `itemId`        INT(11) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    `itemName`      VARCHAR(255) NOT NULL UNIQUE,
+    `itemCategory`  INT(11) UNSIGNED NOT NULL,
+    `itemMinStock`  INT(11),
+    `itemActStock`  INT(11)
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE `itemin` (
+    `iteminId`      INT(11) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    `iteminItem`    INT(11) UNSIGNED NOT NULL,
+    `iteminAmount`  INT(11) NOT NULL,
+    `iteminComment` TEXT
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE `itemout` (
+    `itemoutId`         INT(11) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    `itemoutItem`       INT(11) UNSIGNED NOT NULL,
+    `itemoutAmount`     INT(11) NOT NULL,
+    `itemoutComment`    TEXT
+) DEFAULT CHARSET=utf8;
